@@ -1,3 +1,5 @@
+try{
+node ('winazureagent1'){
 node {
     stage('git checkout') {
         git 'file:///C:/Projects/SsdtDevOpsDemo'
@@ -13,3 +15,14 @@ node {
         bat "\"C:\\Program Files (x86)\\Microsoft SQL Server\\130\\DAC\\bin\\sqlpackage.exe\" /Action:Publish /SourceFile:\"SsdtDevOpsDemo\\bin\\Release\\SsdtDevOpsDemo.dacpac\" /TargetServerName:(local) /TargetDatabaseName:Chinook"
     }
 }
+}
+}
+catch(Exception err) {  
+        stage('Error Info'){
+         echo "Something went wrong"
+         echo err
+            
+        }
+    
+    currentBuild.result = 'FAILURE'    
+    }
