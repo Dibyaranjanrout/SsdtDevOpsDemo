@@ -1,6 +1,6 @@
 try{
 node ('winazureagent1'){
-node {
+
     
     stage('Checkout')
     {
@@ -20,7 +20,7 @@ node {
     }
 }
 }
-}
+
 catch(Exception err) {  
         stage('Error Info'){
          echo "Something went wrong"
