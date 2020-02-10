@@ -4,7 +4,8 @@ node ('winazureagent1'){
     ws('D:\\workspace\\CDS_SQL') {
     stage('Checkout')
     {
-        git branch: 'master', git credentialsId: '7dd87e18-c6a1-4c87-babe-7f756acd6936' , url: 'https://github.com/Dibyaranjanrout/SsdtDevOpsDemo.git'
+        deleteDir()	
+        git branch: 'master', url: 'https://github.com/Dibyaranjanrout/SsdtDevOpsDemo.git'
         
     }
     
