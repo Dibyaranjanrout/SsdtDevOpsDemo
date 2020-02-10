@@ -1,12 +1,8 @@
 try{
 node ('winazureagent1'){
 
+    ws('D:\\workspace\\CDS_SQL') {
     
-    stage('Checkout')
-    {
-        git branch: 'patch-1', url: 'https://github.com/Dibyaranjanrout/SsdtDevOpsDemo.git'
-        
-    }
     
     stage('Build Dacpac from SQLProj') {
         
@@ -20,6 +16,7 @@ node ('winazureagent1'){
     }
 }
 }
+}
 
 catch(Exception err) {  
         stage('Error Info'){
@@ -27,6 +24,7 @@ catch(Exception err) {
          echo err
             
         }
+		
     
     currentBuild.result = 'FAILURE'    
     }
