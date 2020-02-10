@@ -2,6 +2,12 @@ try{
 node ('winazureagent1'){
 node {
     
+    stage('Checkout')
+    {
+        git branch: 'patch-1', url: 'https://github.com/Dibyaranjanrout/SsdtDevOpsDemo.git'
+        
+    }
+    
     stage('Build Dacpac from SQLProj') {
         
         bat "\"${tool name: 'Default', type: 'msbuild'}\" /p:Configuration=Release"
