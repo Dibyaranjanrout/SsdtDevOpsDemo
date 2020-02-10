@@ -2,7 +2,8 @@ try{
 node ('winazureagent1'){
 node {
     
-    stage('Build Dacpac from SQLProj') {  
+    stage('Build Dacpac from SQLProj') {
+        
         bat "\"${tool name: 'Default', type: 'msbuild'}\" /p:Configuration=Release"
         stash includes: 'SsdtDevOpsDemo\\bin\\Release\\SsdtDevOpsDemo.dacpac', name: 'theDacpac'
     }
